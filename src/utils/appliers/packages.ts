@@ -1,10 +1,13 @@
 import { commandExists, tryExecuteCommand } from "../exec";
-import type { PackageSettings, ApplyResult } from "../types";
+import type { ApplyResult, PackageSettings } from "../types";
 
 /**
  * Install Homebrew packages
  */
-async function installHomebrewPackages(formulae: string[], casks: string[]): Promise<{ applied: number; failed: number; errors: string[] }> {
+async function installHomebrewPackages(
+  formulae: string[],
+  casks: string[],
+): Promise<{ applied: number; failed: number; errors: string[] }> {
   let applied = 0;
   let failed = 0;
   const errors: string[] = [];
@@ -141,25 +144,33 @@ export function getPackagesPreview(packages: PackageSettings): string {
   if (packages.homebrew) {
     if (packages.homebrew.formulae.length > 0) {
       lines.push("Homebrew Formulae:");
-      packages.homebrew.formulae.forEach((pkg) => lines.push(`  ${pkg}`));
+      packages.homebrew.formulae.forEach((pkg) => {
+        lines.push(`  ${pkg}`);
+      });
       lines.push("");
     }
     if (packages.homebrew.casks.length > 0) {
       lines.push("Homebrew Casks:");
-      packages.homebrew.casks.forEach((pkg) => lines.push(`  ${pkg}`));
+      packages.homebrew.casks.forEach((pkg) => {
+        lines.push(`  ${pkg}`);
+      });
       lines.push("");
     }
   }
 
   if (packages.npm && packages.npm.length > 0) {
     lines.push("npm Global Packages:");
-    packages.npm.forEach((pkg) => lines.push(`  ${pkg}`));
+    packages.npm.forEach((pkg) => {
+      lines.push(`  ${pkg}`);
+    });
     lines.push("");
   }
 
   if (packages.yarn && packages.yarn.length > 0) {
     lines.push("yarn Global Packages:");
-    packages.yarn.forEach((pkg) => lines.push(`  ${pkg}`));
+    packages.yarn.forEach((pkg) => {
+      lines.push(`  ${pkg}`);
+    });
     lines.push("");
   }
 

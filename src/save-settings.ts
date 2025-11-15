@@ -1,6 +1,6 @@
-import { showHUD, showToast, Toast, getPreferenceValues } from "@raycast/api";
+import { getPreferenceValues, showHUD, showToast, Toast } from "@raycast/api";
 import { collectAllSettings } from "./utils/collectors";
-import { saveSettings, exportSettings } from "./utils/storage";
+import { exportSettings, saveSettings } from "./utils/storage";
 import type { Preferences } from "./utils/types";
 
 export default async function Command() {
@@ -19,7 +19,7 @@ export default async function Command() {
 
     // Save to default location
     toast.message = "Saving settings...";
-    const settingsPath = await saveSettings(manifest);
+    await saveSettings(manifest);
 
     // Export to custom location if specified
     if (preferences.exportPath) {

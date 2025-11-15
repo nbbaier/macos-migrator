@@ -1,5 +1,5 @@
-import { exec } from "child_process";
-import { promisify } from "util";
+import { exec } from "node:child_process";
+import { promisify } from "node:util";
 
 const execAsync = promisify(exec);
 
@@ -18,7 +18,10 @@ export async function executeCommand(command: string, timeout: number = 30000): 
 /**
  * Execute a command and return success status without throwing
  */
-export async function tryExecuteCommand(command: string, timeout: number = 30000): Promise<{ success: boolean; output: string; error?: string }> {
+export async function tryExecuteCommand(
+  command: string,
+  timeout: number = 30000,
+): Promise<{ success: boolean; output: string; error?: string }> {
   try {
     const output = await executeCommand(command, timeout);
     return { success: true, output };

@@ -1,4 +1,4 @@
-import { commandExists, executeCommand, tryExecuteCommand } from "../exec";
+import { commandExists, tryExecuteCommand } from "../exec";
 import type { PackageSettings, CollectionResult } from "../types";
 
 /**

@@ -16,7 +16,10 @@ export async function collectDefaults(): Promise<CollectionResult<DefaultsSettin
         // Filter out null values and convert to our format
         const filtered: DefaultsDomain = {};
         for (const [key, value] of Object.entries(domainDefaults)) {
-          if (value !== null && (typeof value === "string" || typeof value === "number" || typeof value === "boolean")) {
+          if (
+            value !== null &&
+            (typeof value === "string" || typeof value === "number" || typeof value === "boolean")
+          ) {
             filtered[key] = value;
           }
         }

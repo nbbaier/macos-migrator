@@ -83,7 +83,7 @@ export default async function Command() {
 
       await showHUD(
         ` Settings applied (${result.applied} successful${result.failed > 0 ? `, ${result.failed} failed` : ""})\n\n` +
-          "Note: Some changes may require restarting applications or logging out."
+          "Note: Some changes may require restarting applications or logging out.",
       );
     } else {
       toast.style = Toast.Style.Failure;

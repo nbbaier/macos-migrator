@@ -13,7 +13,9 @@ export async function collectAllSettings(preferences: Preferences): Promise<Sett
 
   // Collect settings based on preferences
   const defaultsResult = await collectDefaults();
-  const dotfilesResult = preferences.includeDotfiles ? await collectDotfiles(preferences.customDotfiles) : { success: true, data: {} };
+  const dotfilesResult = preferences.includeDotfiles
+    ? await collectDotfiles(preferences.customDotfiles)
+    : { success: true, data: {} };
   const packagesResult = preferences.includePackages ? await collectPackages() : { success: true, data: {} };
 
   // Create manifest
