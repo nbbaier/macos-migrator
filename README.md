@@ -1,6 +1,6 @@
 # macOS Migrator
 
-A Raycast extension that helps you seamlessly migrate your macOS settings to a new machine. Save all your system preferences, configuration files, and installed packages, then restore them with a single command.
+A Raycast extension that helps you migrate your macOS settings to a new machine. Save your system preferences, configuration files, and installed packages, then restore them with a single command.
 
 ## Features
 
@@ -20,10 +20,6 @@ A Raycast extension that helps you seamlessly migrate your macOS settings to a n
   - Optionally save and install package lists
   - Add custom dotfiles to your migration
   - Set a default export directory
-
-## Installation
-
-Install via the Raycast Store or clone this repository and run `npm install && npm run build`.
 
 ## Usage
 
