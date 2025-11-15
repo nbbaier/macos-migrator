@@ -29,27 +29,36 @@ Install via the Raycast Store or clone this repository and run `npm install && n
 
 ### Saving Settings
 
-1. Press Cmd+K (or your Raycast hotkey) and type "Save Settings"
+1. Open Raycast and search for "Save Settings"
 2. The extension will collect:
    - macOS system defaults
    - Your configuration files
    - Installed packages (if enabled)
-3. Settings are saved locally and optionally exported to your specified directory
+3. Settings are saved locally in Raycast's storage and optionally exported to your specified directory
 
 ### Applying Settings
 
-1. Press Cmd+K and type "Apply Settings"
+1. Open Raycast and search for "Apply Settings"
 2. Review the confirmation dialog showing what will be applied
 3. Choose "Apply Settings" to proceed
    - A backup will be created first (if enabled)
    - Settings will be applied to your system
 4. Some changes may require restarting applications or logging out
 
+## Storage Location
+
+Settings are automatically saved to Raycast's application support directory:
+```
+~/Library/Application Support/com.raycast.macos/extensions/
+```
+
+Additionally, if you configure an export directory in preferences, settings will be exported to that location as well. This allows you to keep backups in a synced folder (e.g., Dropbox, iCloud) or version control.
+
 ## Configuration
 
 Configure the extension via Raycast preferences:
 
-- **Export Directory**: Optional default location for settings backups
+- **Export Directory**: Optional additional location to export settings (e.g., Dropbox, iCloud, or git repository). Settings are always saved to Raycast's local storage regardless of this setting.
 - **Include Dotfiles**: Include configuration files in save (enabled by default)
 - **Include Package Lists**: Save and install package lists (disabled by default)
 - **Auto-backup Before Apply**: Create a backup before applying settings (enabled by default)
@@ -79,7 +88,11 @@ Configure the extension via Raycast preferences:
 
 ## Safety Features
 
-- **No Sensitive Data**: Passwords, SSH keys, and access tokens are never saved
+- **No Sensitive Data**: The following are explicitly excluded and never saved:
+  - SSH private keys (`.ssh/id_rsa`, `.ssh/id_ed25519`, etc.)
+  - AWS credentials (`.aws/credentials`)
+  - GPG private keys (`.gnupg/private-keys*`)
+  - Other credential files
 - **Automatic Backups**: Creates a backup of current settings before applying
 - **Confirmation Dialogs**: Shows exactly what will be applied before making changes
 - **Error Handling**: Detailed feedback when issues occur
