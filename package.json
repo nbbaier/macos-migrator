@@ -28,6 +28,49 @@
 			"mode": "no-view"
 		}
 	],
+	"preferences": [
+		{
+			"name": "exportPath",
+			"type": "directory",
+			"required": false,
+			"title": "Export Directory",
+			"description": "Optional: Default location to export settings backup"
+		},
+		{
+			"name": "includeDotfiles",
+			"type": "checkbox",
+			"required": false,
+			"default": true,
+			"title": "Include Dotfiles",
+			"description": "Save and apply dotfiles (.zshrc, .gitconfig, etc.)",
+			"label": "Include dotfiles"
+		},
+		{
+			"name": "includePackages",
+			"type": "checkbox",
+			"required": false,
+			"default": false,
+			"title": "Include Package Lists",
+			"description": "Save Homebrew and npm package lists (applying will install packages)",
+			"label": "Include packages"
+		},
+		{
+			"name": "autoBackup",
+			"type": "checkbox",
+			"required": false,
+			"default": true,
+			"title": "Auto-backup Before Apply",
+			"description": "Automatically create a backup before applying settings",
+			"label": "Auto-backup"
+		},
+		{
+			"name": "customDotfiles",
+			"type": "textfield",
+			"required": false,
+			"title": "Custom Dotfiles",
+			"description": "Comma-separated list of additional dotfiles to include (e.g., .tmux.conf,.config/nvim/init.vim)"
+		}
+	],
 	"dependencies": {
 		"@raycast/api": "^1.103.6",
 		"@raycast/utils": "^1.17.0"
